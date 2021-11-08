@@ -222,7 +222,7 @@
 			url: 'https://api.sar-simulator.no/index.php/rest/passord/',
 			type: 'POST',
 			data: { 'EpostAdresse': $('#EpostAdresse').val() },
-			dataType: json,
+			dataType: 'json',
 			headers: {
 				'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
 			},
