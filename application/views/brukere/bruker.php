@@ -68,42 +68,6 @@
 
 	$(document).ready(function() {
 		HentOrganisasjoner();
-
-		$('#SkjemaSendVelkomstEpost').click(function (event) {
-      console.log("Send velkomst e-post.");
-      $.ajax({
-				url:'https://api.sar-simulator.no/index.php/Brukere/send_velkomst_epost',
-				type: 'POST',
-				data: {
-        	'BrukerID': BrukerID
-      	},
-				dataType: 'json',
-				success: function(data) {
-					//LastBruker(data.Bruker);
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert('En feil oppstod! Prøv å last inn siden på nytt igjen.');
-				}
-			});
-    });
-
-		$('#SkjemaSendPassordEpost').click(function (event) {
-      console.log("Send passord reset e-post.");
-      $.ajax({
-				url:'https://api.sar-simulator.no/index.php/Brukere/send_passordreset_epost',
-				type: 'POST',
-				data: {
-        	'BrukerID': BrukerID
-      	},
-				dataType: 'json',
-				success: function(data) {
-					//LastBruker(data.Bruker);
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert('En feil oppstod! Prøv å last inn siden på nytt igjen.');
-				}
-			});
-    });
   });
 
 	// Funksjon for å laste ned bruker fra API server.
