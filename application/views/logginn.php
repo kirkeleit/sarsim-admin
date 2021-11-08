@@ -48,14 +48,8 @@
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block" id="LoggPå">Logg inn</button>
         </div>
-		<!--
-        <div class="clearfix">
-            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-            <a href="#" class="float-right">Forgot Password?</a>
-        </div>-->
-    </form>
-    <!--<p class="text-center"><a href="#">Mangler du konto? Registrer deg her!</a></p>-->
-</div>
+      </form>
+    </div>
 
 <script>
   function Autentiser() {
