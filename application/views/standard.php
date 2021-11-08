@@ -42,7 +42,7 @@
     <link href="/css/sarsim.css" rel="stylesheet">
     <script>
       if (sessionStorage.getItem("AccessToken") == null) {
-        window.location = "https://admin.sar-simulator.no/index.php/Brukere/logginn"
+        window.location = "<?php echo site_url('Brukere/logginn'); ?>"
       }
     </script>
   </head>
