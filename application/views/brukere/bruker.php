@@ -219,9 +219,9 @@
 	function SendEndrePassordEpost() {
 		console.debug("Ber bruker om å bytte passord på adresse '"+$('#EpostAdresse').val()+"'.");
 		$.ajax({
-			url:'https://api.sar-simulator.no/index.php/rest/passord/',
+			url: 'https://api.sar-simulator.no/index.php/rest/passord/',
 			type: 'POST',
-			data: { 'EpostAdresse': $('#EpostAdresse').val() }
+			data: { 'EpostAdresse': $('#EpostAdresse').val() },
 			dataType: json,
 			headers: {
 				'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
