@@ -59,7 +59,7 @@
 		$('#LoggPå').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 		$('#LoggPå').prop('disabled', true);
 		$.ajax({
-			url:'https://api.sar-simulator.no/index.php/rest/authenticate',
+			url: 'https://api.sar-simulator.no/index.php/rest/authenticate',
 			type: 'POST',
 			data: {
         'EpostAdresse': $('#EpostAdresse').val(),
