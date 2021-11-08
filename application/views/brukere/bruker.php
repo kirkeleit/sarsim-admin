@@ -56,9 +56,9 @@
 	<div class="card-footer">
     <input type="submit" class="btn btn-primary" value="Lagre" id="BrukerLagre" />
 		<input type="button" class="btn btn-danger" value="Slett" id="BrukerSlett" onclick="SlettBruker();" />
-		<input type="button" class="btn btn-primary" value="Send velkomst e-post" name="SkjemaSendVelkomstEpost" id="SkjemaSendVelkomstEpost" />
-		<input type="submit" class="btn btn-primary" value="Send e-post verifisering" name="SkjemaSendVerifiseringsEpost" />
-		<input type="button" class="btn btn-primary btn-sm" value="Send tilbakestill passord e-post" name="SkjemaSendPassordEpost" id="SkjemaSendPassordEpost" />
+		<!--<input type="button" class="btn btn-primary" value="Send velkomst e-post" name="SkjemaSendVelkomstEpost" id="SkjemaSendVelkomstEpost" />-->
+		<!--<input type="submit" class="btn btn-primary" value="Send e-post verifisering" name="SkjemaSendVerifiseringsEpost" />-->
+		<input type="button" class="btn btn-secondary" value="Bytt passord (sender e-post)" name="SkjemaSendPassordEpost" id="SkjemaSendPassordEpost" onclick="SendEndrePassordEpost();" />
   </div>
 </div>
 </form>
@@ -212,6 +212,22 @@
 				if (BrukerID !== '') {
     			HentBruker();
 				}
+			}
+		});
+	}
+
+	function SendEndrePassordEpost() {
+		console.debug("Ber bruker om å bytte passord på adresse '"+$('#EpostAdresse').val()+"'.");
+		$.ajax({
+			url:'https://api.sar-simulator.no/index.php/rest/passord/',
+			type: 'POST',
+			data: { 'EpostAdresse': $('#EpostAdresse').val() }
+			dataType: json,
+			headers: {
+				'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
+			},
+			success: function(data) {
+				console.debug(data.Bruker);
 			}
 		});
 	}
