@@ -54,11 +54,10 @@
 	</div>
   
 	<div class="card-footer">
-    <input type="submit" class="btn btn-primary" value="Lagre" id="BrukerLagre" />
-		<input type="button" class="btn btn-danger" value="Slett" id="BrukerSlett" onclick="SlettBruker();" />
-		<!--<input type="button" class="btn btn-primary" value="Send velkomst e-post" name="SkjemaSendVelkomstEpost" id="SkjemaSendVelkomstEpost" />-->
-		<!--<input type="submit" class="btn btn-primary" value="Send e-post verifisering" name="SkjemaSendVerifiseringsEpost" />-->
-		<input type="button" class="btn btn-secondary" value="Bytt passord (sender e-post)" name="SkjemaSendPassordEpost" id="SkjemaSendPassordEpost" onclick="SendEndrePassordEpost();" />
+    <input type="submit" class="btn btn-primary" value="Lagre" id="BtnLagreBruker" />
+		<input type="button" class="btn btn-danger" value="Slett" id="BtnSlettBruker" onclick="SlettBruker();" />
+		<input type="submit" class="btn btn-secondary" value="Verifiser e-post (sender e-post)" id="BtnEpostVerifiserEpost" onclick="SendVerifiserEpost();" />
+		<input type="button" class="btn btn-secondary" value="Bytt passord (sender e-post)" id="BtnEpostByttPassord" onclick="SendEndrePassordEpost();" />
   </div>
 </div>
 </form>
@@ -98,8 +97,8 @@
     } else {
       console.debug("Oppretter ny bruker på server.");
     }
-		$('#BrukerLagre').prop('disabled', true);
-		$('#BrukerLagre').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+		$('#BtnLagreBruker').prop('disabled', true);
+		$('#BtnLagreBruker').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
 			url:'https://api.sar-simulator.no/index.php/rest/brukere/'+(BrukerID != '' ? BrukerID : ''),
 			type: (BrukerID != '' ? 'PATCH' : 'POST'),
@@ -120,8 +119,8 @@
 				BrukerID = data.Bruker.BrukerID;
 			},
 			complete: function(xhr, status) {
-				$('#BrukerLagre').html('Lagre');
-				$('#BrukerLagre').prop('disabled', false);
+				$('#BtnLagreBruker').html('Lagre');
+				$('#BtnLagreBruker').prop('disabled', false);
 			}
 		});
   }
@@ -129,8 +128,8 @@
   function SlettBruker() {
 		if (confirm("Er du sikker på at du vil slette brukeren?")) {
       console.debug("Sletter bruker '"+BrukerID+"' på server.");
-      $('#BrukerSlett').prop('disabled', true);
-			$('#BrukerSlett').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+      $('#BtnSlettBruker').prop('disabled', true);
+			$('#BtnSlettBruker').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     	$.ajax({
 				url:'https://api.sar-simulator.no/index.php/rest/brukere/'+BrukerID,
 				type: 'DELETE',
@@ -142,8 +141,8 @@
         	window.location.href = "https://admin.sar-simulator.no/index.php/Brukere/liste";
 				},
 				complete: function(xhr, status) {
-					$('#BrukerSlett').html('Slett');
-					$('#BrukerSlett').prop('disabled', false);
+					$('#BtnSlettBruker').html('Slett');
+					$('#BtnSlettBruker').prop('disabled', false);
 				}
 			});
 		}
@@ -182,6 +181,8 @@
 
 	function SendEndrePassordEpost() {
 		console.debug("Ber bruker om å bytte passord på adresse '"+$('#EpostAdresse').val()+"'.");
+		$('#BtnEpostByttPassord').prop('disabled', true);
+		$('#BtnEpostByttPassord').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 		$.ajax({
 			url: 'https://api.sar-simulator.no/index.php/rest/passord/',
 			type: 'POST',
@@ -191,8 +192,34 @@
 				'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
 			},
 			success: function(data) {
-				console.debug(data.Bruker);
-			}
+				console.debug(data);
+			},
+				complete: function(xhr, status) {
+					$('#BtnEpostByttPassord').html('Slett');
+					$('#BtnEpostByttPassord').prop('disabled', false);
+				}
+		});
+	}
+
+	function SendVerifiserEpost() {
+		console.debug("Ber bruker om å verifisere e-postadresse '"+$('#EpostAdresse').val()+"'.");
+		$('#BtnEpostVerifiserEpost').prop('disabled', true);
+		$('#BtnEpostVerifiserEpost').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+		$.ajax({
+			url: 'https://api.sar-simulator.no/index.php/rest/epost/',
+			type: 'POST',
+			data: { 'EpostAdresse': $('#EpostAdresse').val() },
+			dataType: 'json',
+			headers: {
+				'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
+			},
+			success: function(data) {
+				console.debug(data);
+			},
+				complete: function(xhr, status) {
+					$('#BtnEpostVerifiserEpost').html('Slett');
+					$('#BtnEpostVerifiserEpost').prop('disabled', false);
+				}
 		});
 	}
 </script>
