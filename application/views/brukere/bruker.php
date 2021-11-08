@@ -86,6 +86,8 @@
 				$('#Mobilnummer').val(data.Bruker.Mobilnummer);
 				$('#EpostAdresse').val(data.Bruker.EpostAdresse);
     		$('#Notater').val(data.Bruker.Notater);
+				if (data.Bruker.EpostVerifisert == 1) {
+					$('#BtnEpostVerifiserEpost').hide();
 				}
 			}
 		});
