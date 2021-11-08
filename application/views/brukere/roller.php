@@ -39,7 +39,7 @@
 					$.each(data.Roller, function (i, Rolle) {
 						if (Rolle.DatoEndret != null) { Rolle.DatoEndret = new Date(Rolle.DatoEndret); }
 						var rad = $('<tr></tr>');
-						rad.append('<td><a href="https://admin.sar-simulator.no/index.php/Brukere/rolle/'+Rolle.RolleID+'">'+(typeof Rolle.Navn !== 'undefined' ? Rolle.Navn : '&nbsp;')+'</a></td>');
+						rad.append('<td><a href="<?php echo site_url('Brukere/rolle/'); ?>'+Rolle.RolleID+'">'+(typeof Rolle.Navn !== 'undefined' ? Rolle.Navn : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(Rolle.DatoEndret !== null ? Rolle.DatoEndret.toLocaleDateString() : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Rolle.AntallBrukere !== 'undefined' ? Rolle.AntallBrukere+' stk' : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Rolle.StandardRolle !== 'undefined' ? (Rolle.StandardRolle == 1 ? 'X' : '&nbsp;') : '&nbsp;')+'</td>');

@@ -47,7 +47,7 @@
 		  dataType: 'json',
 		  success: function(data) {
 			  console.debug(data);
-        window.location.href = "https://admin.sar-simulator.no/index.php/Brikker/liste";
+        window.location.href = "<?php echo site_url('Brikker/liste'); ?>";
 		  },
 			complete: function(xhr, status) {
 				$('#BtnOpprettBrikker').prop('disabled', false);

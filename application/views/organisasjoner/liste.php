@@ -45,7 +45,7 @@
 					$.each(data.Organisasjoner, function (i, Organisasjon) {
 						//if (Melding.DatoSendt != null) { Melding.DatoSendt = new Date(Melding.DatoSendt); }
 						var rad = $('<tr></tr>');
-						rad.append('<td><a href="https://admin.sar-simulator.no/index.php/Organisasjoner/organisasjon/'+Organisasjon.OrganisasjonID+'">'+(typeof Organisasjon.Navn !== 'undefined' ? Organisasjon.Navn : '&nbsp;')+'</a></td>');
+						rad.append('<td><a href="<?php echo site_url('Organisasjoner/organisasjon/'); ?>'+Organisasjon.OrganisasjonID+'">'+(typeof Organisasjon.Navn !== 'undefined' ? Organisasjon.Navn : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(typeof Organisasjon.DatoRegistrert !== 'undefined' ? Organisasjon.DatoRegistrert : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Organisasjon.EpostAdresse !== 'undefined' ? Organisasjon.EpostAdresse : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Organisasjon.Telefonnummer !== 'undefined' ? Organisasjon.Telefonnummer : '&nbsp;')+'</td>');

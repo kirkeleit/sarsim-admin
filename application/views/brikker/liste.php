@@ -41,7 +41,7 @@
 					$.each(data.Brikker, function (i, Brikke) {
 						if (typeof Brikke.DatoRegistrert != 'undefined') { Brikke.DatoRegistrert = new Date(Brikke.DatoRegistrert); }
 						var rad = $('<tr></tr>');
-						rad.append('<td><a href="https://admin.sar-simulator.no/index.php/Brikker/brikke/'+Brikke.BrikkeID+'">'+(typeof Brikke.BrikkeID !== 'undefined' ? Brikke.BrikkeID : '&nbsp;')+'</a></td>');
+						rad.append('<td><a href="<?php echo site_url('Brikker/brikke/'); ?>'+Brikke.BrikkeID+'">'+(typeof Brikke.BrikkeID !== 'undefined' ? Brikke.BrikkeID : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(typeof Brikke.OrganisasjonNavn !== 'undefined' ? Brikke.OrganisasjonNavn : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Brikke.DatoRegistrert !== 'undefined' ? Brikke.DatoRegistrert.toLocaleDateString() : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Brikke.ØvelserAntall !== 'undefined' ? Brikke.ØvelserAntall+' stk' : '&nbsp;')+'</td>');
