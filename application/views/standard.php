@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="SAR Simulator [Admin]">
-    <title>SAR Simulator [Admin]</title>
+    <title>SAR Simulator [Admin DEV]</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
