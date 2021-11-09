@@ -107,8 +107,6 @@
 		if ($('#Passord').val().length > 0) {
 			Bruker.Passord = $('#Passord').val();	
 		}
-		console.debug(Bruker);
-		console.debug(JSON.stringify(Bruker));
 
 		$('#BtnLagreBruker').prop('disabled', true);
 		$('#BtnLagreBruker').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
