@@ -54,6 +54,7 @@
   </div>
 </div>
 </form>
+<br />
 
 <script>
 	let BrukerID = '<?php echo (isset($BrukerID) ? $BrukerID : ''); ?>';
