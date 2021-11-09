@@ -1,9 +1,6 @@
-<h2>Brikke</h2>
-<br />
-
 <form onsubmit="LagreBrikke();">
 <div class="card">
-  <h6 class="card-header bg-secondary text-white">Brikke</h6>
+  <h5 class="card-header">Brikke</h5>
 
   <div class="card-body">
     <div class="mb-3">
