@@ -52,6 +52,10 @@
     </div>
 
 <script>
+  $(document).ready(function() {
+    sessionStorage.clear();
+  }
+
   function Autentiser() {
     event.preventDefault();
     $("#alertdiv").remove();
@@ -100,7 +104,6 @@
 			}
 		});
   }
-	
 </script>
 
 </body>
