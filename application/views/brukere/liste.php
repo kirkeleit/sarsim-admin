@@ -11,7 +11,7 @@
 				<th>E-postadresse</th>
 				<th>Mobilnummer</th>
 				<th>Rolle</th>
-				<th>Sist aktivitet</th>
+				<th>Sist pålogget</th>
 	  	</tr>
 		</thead>
 		<tbody>
@@ -39,14 +39,13 @@
 				if (Array.isArray(data.Brukere)) {
 					$("#BrukereAntall").text(data.Brukere.length);
 					$.each(data.Brukere, function (i, Bruker) {
-						if (Bruker.DatoSistLogginn != null) { Bruker.DatoSistLogginn = new Date(Bruker.DatoSistLogginn); }
 						var rad = $('<tr></tr>');
 						rad.append('<td><a href="<?php echo site_url('Brukere/bruker/'); ?>'+Bruker.BrukerID+'">'+(typeof Bruker.Fornavn !== 'undefined' ? Bruker.Fornavn : '&nbsp;')+' '+(typeof Bruker.Etternavn !== 'undefined' ? Bruker.Etternavn : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(typeof Bruker.OrganisasjonNavn !== 'undefined' ? Bruker.OrganisasjonNavn : '&nbsp;')+'</td>');
 						rad.append('<td class="'+(Bruker.EpostVerifisert === "0" ? 'table-danger' : '')+'">'+(typeof Bruker.EpostAdresse !== 'undefined' ? Bruker.EpostAdresse : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Bruker.Mobilnummer !== 'undefined' ? Bruker.Mobilnummer : '&nbsp;')+'</td>');
 						rad.append('<td>'+(typeof Bruker.RolleNavn !== 'undefined' ? Bruker.RolleNavn : '&nbsp;')+'</td>');
-						rad.append('<td>'+(Bruker.DatoSistLogginn !== null ? Bruker.DatoSistLogginn.toLocaleDateString() : '&nbsp;')+'</td>');
+						rad.append('<td>'+(Bruker.DatoSistLogginn !== null ? Bruker.DatoSistLogginn : '&nbsp;')+'</td>');
 						$('#TabellBrukere tbody').append(rad);
 					});
 				}

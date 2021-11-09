@@ -37,8 +37,6 @@
 				if (Array.isArray(data.Eposter)) {
 					$("#EposterAntall").text(data.Eposter.length);
 					$.each(data.Eposter, function (i, Melding) {
-						//if (Melding.DatoRegistrert != null) { Melding.DatoRegistrert = new Date(Melding.DatoRegistrert); }
-						//if (Melding.DatoSendt != null) { Melding.DatoSendt = new Date(Melding.DatoSendt); }
 						var rad = $('<tr></tr>');
 						rad.append('<td><a href="<?php echo site_url('eposter/melding/'); ?>'+Melding.MeldingID+'">'+(typeof Melding.MeldingID !== 'undefined' ? Melding.MeldingID : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(typeof Melding.DatoRegistrert !== 'undefined' ? Melding.DatoRegistrert : '&nbsp;')+'</td>');

@@ -43,7 +43,6 @@
 				if (Array.isArray(data.Organisasjoner)) {
 					$("#OrganisasjonerAntall").text(data.Organisasjoner.length);
 					$.each(data.Organisasjoner, function (i, Organisasjon) {
-						//if (Melding.DatoSendt != null) { Melding.DatoSendt = new Date(Melding.DatoSendt); }
 						var rad = $('<tr></tr>');
 						rad.append('<td><a href="<?php echo site_url('Organisasjoner/organisasjon/'); ?>'+Organisasjon.OrganisasjonID+'">'+(typeof Organisasjon.Navn !== 'undefined' ? Organisasjon.Navn : '&nbsp;')+'</a></td>');
 						rad.append('<td>'+(typeof Organisasjon.DatoRegistrert !== 'undefined' ? Organisasjon.DatoRegistrert : '&nbsp;')+'</td>');
