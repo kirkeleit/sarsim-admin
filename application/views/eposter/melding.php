@@ -1,5 +1,5 @@
 <div class="card">
-	<h6 class="card-header bg-secondary text-white">E-postmelding</h6>
+	<h6 class="card-header bg-secondary text-white">E-POSTMELDING</h6>
 
 	<div class="card-body">
 		<div class="mb-3">

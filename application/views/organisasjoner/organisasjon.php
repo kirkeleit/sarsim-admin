@@ -1,9 +1,6 @@
-<h2>Organisasjon</h2>
-<br />
-
 <form onsubmit="LagreOrganisasjon();">
 <div class="card">
-  <h6 class="card-header bg-secondary text-white">Organisasjon</h6>
+  <h6 class="card-header bg-secondary text-white">ORGANISASJON</h6>
   
   <div class="card-body">
     <div class="mb-3">

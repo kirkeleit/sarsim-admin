@@ -1,9 +1,6 @@
-<h2>Bruker</h2>
-<br />
-
 <form onsubmit="LagreBruker();">
 <div class="card">
-	<h6 class="card-header bg-secondary text-white">Bruker</h6>
+	<h6 class="card-header bg-secondary text-white">BRUKER</h6>
 
 	<div class="card-body">
 		<div class="mb-3">

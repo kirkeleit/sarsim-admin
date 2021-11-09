@@ -1,9 +1,6 @@
-<h2>Brukerrolle</h2>
-<br />
-
 <form onsubmit="LagreRolle();">
 <div class="card">
-	<h6 class="card-header bg-secondary text-white">Rolle</h6>
+	<h6 class="card-header bg-secondary text-white">ROLLE</h6>
 
 	<div class="card-body">
 		<div class="mb-3">

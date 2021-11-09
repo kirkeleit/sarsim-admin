@@ -1,6 +1,6 @@
 <form onsubmit="OpprettBrikker();">
 <div class="card">
-  <h6 class="card-header bg-secondary text-white">Nye Brikker</h6>
+  <h6 class="card-header bg-secondary text-white">OPPRETT NYE BRIKKER</h6>
   
   <div class="card-body">
     <div class="mb-3">
