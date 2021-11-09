@@ -103,7 +103,7 @@
 		$('#BtnLagreBruker').prop('disabled', true);
 		$('#BtnLagreBruker').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
-			url:'https://api.sar-simulator.no/index.php/rest/brukere/'+(BrukerID != '' ? BrukerID : ''),
+			url: 'https://api.sar-simulator.no/index.php/rest/brukere/'+(BrukerID != '' ? BrukerID : ''),
 			type: (BrukerID != '' ? 'PATCH' : 'POST'),
        headers: {
 			  'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
@@ -119,7 +119,7 @@
 			dataType: 'json',
 			success: function(data) {
 				console.debug(data);
-				BrukerID = data.Bruker.BrukerID;
+				window.location.href = "<?php echo site_url('brukere/bruker/'); ?>"+data.Bruker.BrukerID;
 			},
 			complete: function(xhr, status) {
 				$('#BtnLagreBruker').html('Lagre');
@@ -141,7 +141,7 @@
 			  },
 				success: function(data) {
 					console.debug(data);
-        	window.location.href = "https://admin.sar-simulator.no/index.php/Brukere/liste";
+        	window.location.href = "<?php echo site_url('brukere/liste'); ?>";
 				},
 				complete: function(xhr, status) {
 					$('#BtnSlettBruker').html('Slett');

@@ -215,7 +215,7 @@
 			dataType: 'json',
 			success: function(data) {
 				console.debug(data);
-				RolleID = data.Rolle.RolleID;
+				window.location.href = "<?php echo site_url('brukere/rolle/'); ?>"+data.Rolle.RolleID;
 			},
 			complete: function(xhr, status) {
 				$('#RolleLagre').html('Lagre');

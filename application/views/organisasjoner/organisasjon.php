@@ -109,7 +109,7 @@
 			success: function(data) {
 				console.debug(data);
         OrganisasjonID = data.Organisasjon.OrganisasjonID;
-        window.location.href = "https://admin.sar-simulator.no/index.php/Organisasjoner/organisasjon/"+OrganisasjonID;
+        window.location.href = "<?php echo site_url('organisasjoner/organisasjon/'); ?>"+OrganisasjonID;
 			},
 			complete: function(xhr, status) {
 				$('#OrganisasjonLagre').html('Lagre');
@@ -132,7 +132,7 @@
 			  },
 			  success: function(data) {
 				  console.debug(data);
-          window.location.href = "https://admin.sar-simulator.no/index.php/Organisasjoner/liste";
+          window.location.href = "<?php echo site_url('organisasjoner/liste/'); ?>";
 			  },
 				complete: function(xhr, status) {
 					$('#OrganisasjonSlett').html('Slett');

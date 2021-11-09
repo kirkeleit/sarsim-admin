@@ -92,7 +92,7 @@
 			dataType: 'json',
 			success: function(data) {
 				console.debug(data);
-        window.location.href = "https://admin.sar-simulator.no/index.php/Brikker/brikke/"+$('#BrikkeID').val();
+        window.location.href = "<?php echo site_url('brikker/brikke/'); ?>"+$('#BrikkeID').val();
 			},
 			complete: function(xhr, status) {
 				$('#BtnLagreBrikke').html('Lagre');
@@ -115,7 +115,7 @@
 			  },
 			  success: function(data) {
 				  console.debug(data);
-          window.location.href = "https://admin.sar-simulator.no/index.php/Brikker/liste";
+          window.location.href = "<?php echo site_url('brikker/liste/'); ?>";
 			  },
 				complete: function(xhr, status) {
 					$('#BtnSlettBrikke').html('Slett');
