@@ -30,6 +30,6 @@ jobs:
         with:
           host: app.sar-simulator.no
           username: ${{ secrets.EIDESVIK_SERVER_USERNAME }}
-          password: ${{ secrets.EIDESVIK_SERVER_SSH_KEY }}
+          key: ${{ secrets.EIDESVIK_SERVER_SSH_KEY }}
           script: cd ${{ secrets.EIDESVIK_DEV_PATH }} && git pull
           debug: true
