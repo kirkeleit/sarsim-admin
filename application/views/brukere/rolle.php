@@ -147,8 +147,8 @@
 	</div>
   
 	<div class="card-footer">
-    <input type="submit" class="btn btn-primary" value="Lagre" id="RolleLagre" />
-		<input type="button" class="btn btn-danger" value="Slett" id="RolleSlett" onclick="SlettRolle();" />
+    <input type="submit" class="btn btn-primary" value="Lagre" id="BtnLagreRolle" />
+		<input type="button" class="btn btn-danger" style="display:none;" value="Slett" id="BtnSlettRolle" onclick="SlettRolle();" />
   </div>
 </div>
 </form>
@@ -176,6 +176,7 @@
 				$('#Navn').val(data.Rolle.Navn);
     		$('#Notater').val(data.Rolle.Notater);
 				(data.Rolle.StandardRolle === "1" ? $("#StandardRolle").prop('checked',true) : $("#StandardRolle").prop('checked',false) );
+				$('#BtnSlettRolle').show();
 				data.Rolle.Tilganger.forEach(function(Tilgang) {
 					$('#Tilgang'+Tilgang).prop('checked', true);
 				});
@@ -198,8 +199,8 @@
 		});
 		console.debug(Tilganger);
 
-		$('#RolleLagre').prop('disabled', true);
-		$('#RolleLagre').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+		$('#BtnLagreRolle').prop('disabled', true);
+		$('#BtnLagreRolle').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
 			url:'https://api.sar-simulator.no/index.php/rest/brukerroller/'+(RolleID != '' ? RolleID : ''),
 			type: (RolleID != '' ? 'PATCH' : 'POST'),
@@ -218,8 +219,8 @@
 				window.location.href = "<?php echo site_url('brukere/rolle/'); ?>"+data.Rolle.RolleID;
 			},
 			complete: function(xhr, status) {
-				$('#RolleLagre').html('Lagre');
-				$('#RolleLagre').prop('disabled', false);
+				$('#BtnLagreRolle').html('Lagre');
+				$('#BtnLagreRolle').prop('disabled', false);
 			}
 		});
   }
@@ -227,8 +228,8 @@
   function SlettRolle() {
 		if (confirm("Er du sikker på at du vil slette rollen?")) {
       console.debug("Sletter rolle '"+RolleID+"' på server.");
-      $('#RolleSlett').prop('disabled', true);
-			$('#RolleSlett').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+      $('#BtnSlettRolle').prop('disabled', true);
+			$('#BtnSlettRolle').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     	$.ajax({
 				url:'https://api.sar-simulator.no/index.php/rest/brukerroller/'+RolleID,
 				type: 'DELETE',
@@ -240,8 +241,8 @@
         	window.location.href = "<?php echo site_url('brukere/roller'); ?>";
 				},
 				complete: function(xhr, status) {
-					$('#RolleSlett').html('Slett');
-					$('#RolleSlett').prop('disabled', false);
+					$('#BtnSlettRolle').html('Slett');
+					$('#BtnSlettRolle').prop('disabled', false);
 				}
 			});
 		}

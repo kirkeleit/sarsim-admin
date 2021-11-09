@@ -37,8 +37,8 @@
   </div>
   
   <div class="card-footer" id="Knapperad">
-    <input type="submit" class="btn btn-primary" value="Lagre" id="OrganisasjonLagre" name="SkjemaLagre" />
-    <input type="button" class="btn btn-danger" value="Slett" id="OrganisasjonSlett" name="SkjemaSlett" onclick="SlettOrganisasjon();" />
+    <input type="submit" class="btn btn-primary" value="Lagre" id="BtnLagreOrganisasjon" />
+    <input type="button" class="btn btn-danger" value="Slett" style="display:none;" id="BtnSlettOrganisasjon" onclick="SlettOrganisasjon();" />
   </div>
 </div>
 </form>
@@ -69,6 +69,7 @@
         $('#EpostAdresse').val(data.Organisasjon.EpostAdresse);
         $('#Telefonnummer').val(data.Organisasjon.Telefonnummer);
         $('#Notater').val(data.Organisasjon.Notater);
+        $('#BtnSlettOrganisasjon').show();
         if (data.Tilgang.Endre == true) {
           $("#OrganisasjonLagre").prop('disabled', false);
         } else {
@@ -90,8 +91,8 @@
     } else {
       console.debug("Oppretter ny organisasjon på server.");
     }
-    $('#OrganisasjonLagre').prop('disabled', true);
-		$('#OrganisasjonLagre').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+    $('#BtnLagreOrganisasjon').prop('disabled', true);
+		$('#BtnLagreOrganisasjon').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
 			url: 'https://api.sar-simulator.no/index.php/rest/organisasjoner/'+(OrganisasjonID != '' ? OrganisasjonID : ''),
 			type: (OrganisasjonID != '' ? 'PATCH' : 'POST'),
@@ -112,8 +113,8 @@
         window.location.href = "<?php echo site_url('organisasjoner/organisasjon/'); ?>"+OrganisasjonID;
 			},
 			complete: function(xhr, status) {
-				$('#OrganisasjonLagre').html('Lagre');
-				$('#OrganisasjonLagre').prop('disabled', false);
+				$('#BtnLagreOrganisasjon').html('Lagre');
+				$('#BtnLagreOrganisasjon').prop('disabled', false);
 			}
 		});
     return true;
@@ -122,8 +123,8 @@
   function SlettOrganisasjon() {
     if (confirm("Er du sikker på at du vil slette organisasjonen?")) {
       console.debug("Sletter organisasjon '"+OrganisasjonID+"' på server.");
-      $('#OrganisasjonSlett').prop('disabled', true);
-			$('#OrganisasjonSlett').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+      $('#BtnSlettOrganisasjon').prop('disabled', true);
+			$('#BtnSlettOrganisasjon').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
       $.ajax({
 			  url:'https://api.sar-simulator.no/index.php/rest/organisasjoner/'+OrganisasjonID,
 			  type: 'DELETE',
@@ -135,8 +136,8 @@
           window.location.href = "<?php echo site_url('organisasjoner/liste/'); ?>";
 			  },
 				complete: function(xhr, status) {
-					$('#OrganisasjonSlett').html('Slett');
-					$('#OrganisasjonSlett').prop('disabled', false);
+					$('#BtnSlettOrganisasjon').html('Slett');
+					$('#BtnSlettOrganisasjon').prop('disabled', false);
 				}
 		  });
     }

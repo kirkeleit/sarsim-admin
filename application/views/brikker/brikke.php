@@ -44,7 +44,7 @@
   
   <div class="card-footer">
     <input type="submit" class="btn btn-primary" value="Lagre" id="BtnLagreBrikke" />
-    <input type="button" class="btn btn-danger" value="Slett" id="BtnSlettBrikke" onclick="SlettBrikke();"/>
+    <input type="button" class="btn btn-danger" style="display:none;" value="Slett" id="BtnSlettBrikke" onclick="SlettBrikke();"/>
   </div>
 </div>
 </form>
@@ -71,6 +71,7 @@
         console.debug(data.Brikke);
         $('#OrganisasjonNavn').val(data.Brikke.OrganisasjonNavn);
         $('#Notater').val(data.Brikke.Notater);
+        $('#BtnSlettBrikke').show();
 			}
 		});
 	}
