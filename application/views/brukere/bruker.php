@@ -55,9 +55,9 @@
   
 	<div class="card-footer">
     <input type="submit" class="btn btn-primary" value="Lagre" id="BtnLagreBruker" />
-		<input type="button" class="btn btn-danger" value="Slett" id="BtnSlettBruker" onclick="SlettBruker();" />
-		<input type="submit" class="btn btn-secondary" value="Verifiser e-post (sender e-post)" id="BtnEpostVerifiserEpost" onclick="SendVerifiserEpost();" />
-		<input type="button" class="btn btn-secondary" value="Bytt passord (sender e-post)" id="BtnEpostByttPassord" onclick="SendEndrePassordEpost();" />
+		<input type="button" class="btn btn-danger" style="display:none;" value="Slett" id="BtnSlettBruker" onclick="SlettBruker();" />
+		<input type="submit" class="btn btn-secondary" style="display:none;" value="Verifiser e-post (sender e-post)" id="BtnEpostVerifiserEpost" onclick="SendVerifiserEpost();" />
+		<input type="button" class="btn btn-secondary" style="display:none;" value="Bytt passord (sender e-post)" id="BtnEpostByttPassord" onclick="SendEndrePassordEpost();" />
   </div>
 </div>
 </form>
@@ -86,8 +86,10 @@
 				$('#Mobilnummer').val(data.Bruker.Mobilnummer);
 				$('#EpostAdresse').val(data.Bruker.EpostAdresse);
     		$('#Notater').val(data.Bruker.Notater);
-				if (data.Bruker.EpostVerifisert == 1) {
-					$('#BtnEpostVerifiserEpost').hide();
+				$('#BtnSlettBruker').show();
+				$('#BtnEpostByttPassord').show();
+				if (data.Bruker.EpostVerifisert == 0) {
+					$('#BtnEpostVerifiserEpost').show();
 				}
 			}
 		});
