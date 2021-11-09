@@ -224,7 +224,7 @@
 		});
   }
 
-  function SlettBruker() {
+  function SlettRolle() {
 		if (confirm("Er du sikker på at du vil slette rollen?")) {
       console.debug("Sletter rolle '"+RolleID+"' på server.");
       $('#RolleSlett').prop('disabled', true);
@@ -237,7 +237,7 @@
 			  },
 				success: function(data) {
 					console.debug(data);
-        	window.location.href = "https://admin.sar-simulator.no/index.php/Brukere/roller";
+        	window.location.href = "<?php echo site_url('brukere/roller'); ?>";
 				},
 				complete: function(xhr, status) {
 					$('#RolleSlett').html('Slett');
