@@ -34,15 +34,11 @@
 		</div>
 		<br />
 	
-		<!--<div class="mb-3">
-			<label class="form-label" for="Passord"><b>Passord:</b></label>
+		<div class="mb-3">
+			<label class="form-label" for="Passord"><b>Nytt passord:</b></label>
 			<input type="password" class="form-control" id="Passord" name="Passord">
 		</div>
-		<div class="mb-3">
-			<label class="form-label" for="BekreftPassord"><b>Bekreft passord:</b></label>
-			<input type="password" class="form-control" id="BekreftPassord" name="BekreftPassord">
-		</div>
-		<br />-->
+		<br />
 
 		<div class="mb-3">
 			<label class="form-label" for="Notater"><b>Notater:</b></label>
@@ -99,6 +95,18 @@
     } else {
       console.debug("Oppretter ny bruker på server.");
     }
+
+		let Bruker = {}
+		Bruker.OrganisasjonID = $('#OrganisasjonID').val();
+		Bruker.Fornavn = $('#Fornavn').val();
+		Bruker.Etternavn = $('#Etternavn').val();
+		Bruker.EpostAdresse = $('#EpostAdresse').val();
+		Bruker.Mobilnummer = $('#Mobilnummer').val();
+    Bruker.Notater = $('#Notater').val();
+		if ($('#Passord').val().length > 0) {
+			Bruker.Passord = $('#Passord').val();	
+		}
+
 		$('#BtnLagreBruker').prop('disabled', true);
 		$('#BtnLagreBruker').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
@@ -107,14 +115,7 @@
        headers: {
 			  'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
 		  },
-			data: {
-				'OrganisasjonID': $('#OrganisasjonID').val(),
-				'Fornavn': $('#Fornavn').val(),
-				'Etternavn': $('#Etternavn').val(),
-				'EpostAdresse': $('#EpostAdresse').val(),
-				'Mobilnummer': $('#Mobilnummer').val(),
-        'Notater': $('#Notater').val()
-      },
+			data: Bruker,
 			dataType: 'json',
 			success: function(data) {
 				console.debug(data);
