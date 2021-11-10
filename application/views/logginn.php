@@ -54,6 +54,7 @@
 <script>
   $(document).ready(function() {
     sessionStorage.clear();
+    console.debug(window.location.hostname);
   });
 
   function Autentiser() {
