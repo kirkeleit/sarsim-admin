@@ -2,7 +2,7 @@
 function SARSIMStatus() {
 	console.debug("Ping Pong");
 	$.ajax({
-		url:'https://api.sar-simulator.no/index.php/rest/ping',
+		url: 'https://api.sar-simulator.no/index.php/rest/ping',
 		type: 'GET',
 		headers: {
 			'Authorization': 'Bearer '+sessionStorage.getItem('AccessToken')
@@ -15,8 +15,7 @@ function SARSIMStatus() {
 			}
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
-			console.debug(window.location.hostname);
-			window.location = "https://admin.sar-simulator.no/index.php/Brukere/logginn";
+			window.location = 'https://${window.location.hostname}/index.php/brukere/logginn';
 		}
 	});
 }
