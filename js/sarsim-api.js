@@ -15,7 +15,7 @@ function SARSIMStatus() {
 			}
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
-			window.location = 'https://${window.location.hostname}/index.php/brukere/logginn';
+			window.location = 'https://'+window.location.hostname+'/index.php/brukere/logginn';
 		}
 	});
 }
