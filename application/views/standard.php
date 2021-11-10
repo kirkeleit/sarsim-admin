@@ -42,7 +42,7 @@
     <link href="/css/sarsim.css" rel="stylesheet">
     <script>
       if (sessionStorage.getItem("AccessToken") == null) {
-        window.location = "<?php echo site_url('Brukere/logginn'); ?>"
+        window.location = "https://${window.location.hostname}/index.php/brukere/logginn"
       }
     </script>
   </head>
