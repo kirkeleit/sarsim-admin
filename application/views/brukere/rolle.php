@@ -106,7 +106,11 @@
 			<legend class="h4">Øvelser</legend>
 			<div class="form-check">
   			<input class="form-check-input" type="checkbox" name="Tilganger[]" value="400" id="Tilgang400">
-  			<label class="form-check-label" for="Tilgang400">Lese øvelser (400)</label>
+  			<label class="form-check-label" for="Tilgang400">Lese alle øvelser (400)</label>
+			</div>
+			<div class="form-check">
+  			<input class="form-check-input" type="checkbox" name="Tilganger[]" value="401" id="Tilgang401">
+  			<label class="form-check-label" for="Tilgang401">Lese øvelser (mine, org og delt) (401)</label>
 			</div>
 			<div class="form-check">
   			<input class="form-check-input" type="checkbox" name="Tilganger[]" value="430" id="Tilgang430">
