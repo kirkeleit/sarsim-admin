@@ -15,6 +15,7 @@ function SARSIMStatus() {
 			}
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
+			console.debug(window.location.hostname);
 			window.location = "https://admin.sar-simulator.no/index.php/Brukere/logginn";
 		}
 	});
